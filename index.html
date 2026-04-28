@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Приглашение — Save the date</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&amp;family=Manrope:wght@300;400;500&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Google Form: src — …/viewform?embedded=true; ссылка-кнопка — …/viewform без параметра -->
+  <a class="skip-link" href="#guest-form">К форме для гостей</a>
+
+  <div class="paper">
+    <header class="hero" id="top">
+      <div class="hero__media">
+        <img
+          class="hero__img"
+          src="assets/lovers.JPG"
+          alt="Фото пары, приглашающей на свадьбу"
+          width="2560"
+          height="2048"
+          fetchpriority="high"
+        >
+        <div class="hero__scrim" aria-hidden="true"></div>
+        <div class="hero__content">
+          <h1 class="hero__title">Save the date</h1>
+          <p class="hero__date">28/08/2026</p>
+        </div>
+      </div>
+    </header>
+
+    <nav class="in-page-nav" aria-label="По странице">
+      <a class="in-page-nav__link" href="#location">Location</a>
+      <a class="in-page-nav__link" href="#timing">Timing</a>
+      <a class="in-page-nav__link" href="#dress-code">Dress&nbsp;-&nbsp;code</a>
+      <a class="in-page-nav__link" href="#details">Details</a>
+      <a class="in-page-nav__link in-page-nav__link--primary" href="#guest-form">Форма</a>
+    </nav>
+
+    <main>
+      <section class="section section--location" id="location" aria-labelledby="location-heading">
+        <h2 class="section__title" id="location-heading">Location</h2>
+
+        <div class="location-cards">
+          <article class="location-card location-card--vorontsovo">
+            <figure class="location-card__figure">
+              <img
+                class="location-card__img"
+                src="assets/house1.JPG"
+                alt="Зал в усадьбе Воронцово, Восточный флигель — Оранжерея"
+                width="1024"
+                height="683"
+                loading="lazy"
+              >
+            </figure>
+            <div class="location-card__body">
+              <p class="location-card__time"><strong>13:30</strong></p>
+              <p class="location-card__venue">«Усадьба Воронцово»</p>
+              <p class="location-card__text">Адрес: Воронцовский парк, д. 3</p>
+              <p class="location-card__text">Восточный флигель (Оранжерея) в усадьбе Воронцово</p>
+              <a
+                class="btn"
+                href="https://www.google.com/maps/search/?api=1&amp;query=%D0%92%D0%BE%D1%80%D0%BE%D0%BD%D1%86%D0%BE%D0%B2%D1%81%D0%BA%D0%B8%D0%B9%20%D0%BF%D0%B0%D1%80%D0%BA%2C%20%D0%B4.%203%2C%20%D0%92%D0%BE%D1%81%D1%82%D0%BE%D1%87%D0%BD%D1%8B%D0%B9%20%D1%84%D0%BB%D0%B8%D0%B3%D0%B5%D0%BB%D1%8C%20(%D0%9E%D1%80%D0%B0%D0%BD%D0%B6%D0%B5%D1%80%D0%B5%D1%8F)%2C%20%D1%83%D1%81%D0%B0%D0%B4%D1%8C%D0%B1%D0%B0%20%D0%92%D0%BE%D1%80%D0%BE%D0%BD%D1%86%D0%BE%D0%B2%D0%BE%2C%20%D0%9C%D0%BE%D1%81%D0%BA%D0%B2%D0%B0"
+                target="_blank"
+                rel="noopener noreferrer"
+              >Локация</a>
+            </div>
+          </article>
+
+          <article class="location-card location-card--bolshakovo">
+            <figure class="location-card__figure">
+              <img
+                class="location-card__img"
+                src="assets/bolshakovo.jpg"
+                alt="Поместье Большаково — здание и двор"
+                width="1000"
+                height="597"
+                loading="lazy"
+              >
+            </figure>
+            <div class="location-card__body">
+              <p class="location-card__time"><strong>16:30</strong></p>
+              <p class="location-card__venue">«Поместье Большаково»</p>
+              <p class="location-card__text">Адрес: Большаково, Благовещенка деревня, Весенняя улица, 1</p>
+              <a
+                class="btn"
+                href="https://www.google.com/maps/search/?api=1&amp;query=%D0%91%D0%BE%D0%BB%D1%8C%D1%88%D0%B0%D0%BA%D0%BE%D0%B2%D0%BE%2C%20%D0%91%D0%BB%D0%B0%D0%B3%D0%BE%D0%B2%D0%B5%D1%89%D0%B5%D0%BD%D0%BA%D0%B0%20%D0%B4%D0%B5%D1%80%D0%B5%D0%B2%D0%BD%D1%8F%2C%20%D0%92%D0%B5%D1%81%D0%B5%D0%BD%D0%BD%D1%8F%D1%8F%20%D1%83%D0%BB%D0%B8%D1%86%D0%B0%2C%201"
+                target="_blank"
+                rel="noopener noreferrer"
+              >Локация</a>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section section--timing" id="timing" aria-labelledby="timing-heading">
+        <h2 class="section__title" id="timing-heading">TIMING</h2>
+        <ol class="timeline">
+          <li class="timeline__item">
+            <p class="timeline__label"><strong>13:30 — Расписываемся</strong></p>
+            <p class="timeline__body">Если вы желаете услышать наше заветное „ДА“ ждем вас по адресу : Воронцовский парк д. 7</p>
+          </li>
+          <li class="timeline__item">
+            <p class="timeline__label"><strong>14:50 — Отправляемся на локацию</strong></p>
+            <p class="timeline__body">После церемонии не расходимся, все только начинается! Мы организовали трансфер до места праздника, чтобы вы могли спокойно добраться и продолжить веселиться вместе с нами. Автобус будет ждать вас неподалеку от места церемонии. Пожалуйста, ориентируйтесь по времени, автобус уедет, а мы будем скучать</p>
+          </li>
+          <li class="timeline__item">
+            <p class="timeline__label"><strong>16:30 — ВечеринО4ка</strong></p>
+            <p class="timeline__body">Мы решили не усложнять и сделать все максимально просто и по-дружески. Мы за легкость и хорошее настроение, поэтому просто ориентируйтесь по времени и дру другу!</p>
+          </li>
+        </ol>
+      </section>
+
+      <section class="section" id="dress-code" aria-labelledby="dress-heading">
+        <h2 class="section__title" id="dress-heading">Dress - code</h2>
+        <p class="prose">«Нам не важно в какой одежде вы будете, но на время церемонии просим воздержаться от джинс и спортивной одежды, на месте празднования, мы хотим, чтобы вы чувствовали себя комфортно и дали волю своим образам( ростовые костюмы динозавров приветствуются)»</p>
+      </section>
+
+      <section class="section" id="details" aria-labelledby="details-heading">
+        <h2 class="section__title" id="details-heading">Details</h2>
+        <p class="prose">«Пожалуйста, не дарите нам цветы - грустно смотреть, как они вянут. Если хотите нас порадовать, то заменить цветы можно алкоголем или собачьими игрушками/лакомствами!»</p>
+      </section>
+
+      <section class="section section--form" id="guest-form" aria-labelledby="form-heading">
+        <h2 class="section__title" id="form-heading">Guest form</h2>
+        <p class="form-intro">Опрос в Google Форме — займёт пару минут.</p>
+
+        <div class="form-embed">
+          <iframe
+            class="form-embed__frame"
+            title="Опрос гостя в Google Форме"
+            src="https://docs.google.com/forms/d/e/1FAIpQLSe-Bc7XijFZavgorQOZVMO9_Xmh688bg6j0900mt0kytMcmZw/viewform?embedded=true"
+            width="640"
+            height="667"
+            loading="lazy"
+          ></iframe>
+        </div>
+
+        <p class="form-fallback">
+          <a class="btn btn--wide" href="https://docs.google.com/forms/d/e/1FAIpQLSe-Bc7XijFZavgorQOZVMO9_Xmh688bg6j0900mt0kytMcmZw/viewform" target="_blank" rel="noopener noreferrer">Заполнить форму</a>
+        </p>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <a class="footer__up" href="#top">К началу</a>
+    </footer>
+  </div>
+</body>
+</html>

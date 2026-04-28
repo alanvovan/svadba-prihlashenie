@@ -1,0 +1,504 @@
+/* Wedding invitation — paper, burgundy type */
+:root {
+  --paper: #faf6ef;
+  --paper-warm: #f3ebe0;
+  --ink-burgundy: #5c1a2a;
+  --ink-burgundy-deep: #4a1522;
+  --accent-burgundy: #7a2438;
+  --muted: #6b454f;
+  --border: rgba(92, 26, 42, 0.14);
+  --hero-text: #fff8f4;
+  --font-serif: "Cormorant Garamond", "Times New Roman", serif;
+  --font-sans: "Manrope", system-ui, sans-serif;
+  --space-section: 2.25rem;
+  --radius-card: 4px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  overflow-x: clip;
+  font-family: var(--font-sans);
+  font-weight: 300;
+  font-size: 1.05rem;
+  line-height: 1.65;
+  color: var(--ink-burgundy);
+  background: var(--paper-warm);
+  background-image:
+    radial-gradient(ellipse 85% 45% at 50% -15%, rgba(122, 36, 56, 0.06), transparent),
+    radial-gradient(ellipse 55% 35% at 100% 100%, rgba(92, 26, 42, 0.05), transparent);
+}
+
+.skip-link {
+  position: absolute;
+  left: 0.75rem;
+  top: 0.75rem;
+  z-index: 100;
+  padding: 0.65rem 1rem;
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--paper);
+  background: var(--ink-burgundy);
+  text-decoration: none;
+  border-radius: var(--radius-card);
+  transform: translateY(-200%);
+  transition: transform 0.2s ease;
+}
+
+.skip-link:focus {
+  transform: translateY(0);
+  outline: 2px solid var(--accent-burgundy);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .skip-link {
+    transition: none;
+  }
+}
+
+.paper {
+  max-width: 42rem;
+  margin: 0 auto 2.5rem;
+  padding: 0 1.25rem 2rem;
+  container-type: inline-size;
+  background: var(--paper);
+  border: 1px solid var(--border);
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.65) inset,
+    0 20px 40px -14px rgba(74, 21, 34, 0.12);
+  border-radius: var(--radius-card);
+}
+
+@media (min-width: 600px) {
+  .paper {
+    margin-top: 1.5rem;
+    padding: 0 2rem 2.5rem;
+  }
+}
+
+/* Hero */
+.hero {
+  margin: 0 -1.25rem;
+  width: auto;
+  max-width: none;
+  border-radius: var(--radius-card) var(--radius-card) 0 0;
+  overflow: hidden;
+}
+
+@media (min-width: 600px) {
+  .hero {
+    margin: 0 -2rem;
+  }
+}
+
+.hero__media {
+  position: relative;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  overflow: hidden;
+  /* fallback: пропорции 5:4 и ограничение по высоте */
+  aspect-ratio: 5 / 4;
+  max-height: min(72vh, 32rem);
+}
+
+/* Высота от ширины колонки (адаптивно), с потолком по высоте экрана */
+@supports (container-type: inline-size) {
+  .hero__media {
+    aspect-ratio: unset;
+    max-height: none;
+    height: min(min(72vh, 32rem), calc(100cqw * 4 / 5));
+  }
+}
+
+.hero__img {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero__scrim {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(30, 10, 16, 0.75) 0%,
+    rgba(30, 10, 16, 0.35) 45%,
+    rgba(30, 10, 16, 0.2) 100%
+  );
+  pointer-events: none;
+}
+
+.hero__content {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 1.5rem 1.25rem 1.75rem;
+  text-align: center;
+}
+
+@media (min-width: 600px) {
+  .hero__content {
+    padding: 2rem 2rem 2.25rem;
+  }
+}
+
+.hero__title {
+  margin: 0;
+  font-family: var(--font-serif);
+  font-weight: 500;
+  font-size: clamp(2rem, 6.5vw, 3rem);
+  line-height: 1.12;
+  letter-spacing: 0.02em;
+  color: var(--hero-text);
+  text-shadow:
+    0 0 1px rgba(0, 0, 0, 0.85),
+    0 1px 2px rgba(0, 0, 0, 0.55),
+    0 0 24px rgba(0, 0, 0, 0.35);
+}
+
+.hero__date {
+  margin: 0.75rem 0 0;
+  font-family: var(--font-serif);
+  font-size: clamp(1.35rem, 4vw, 1.75rem);
+  font-weight: 400;
+  color: var(--hero-text);
+  text-shadow:
+    0 0 1px rgba(0, 0, 0, 0.8),
+    0 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+/* In-page nav */
+.in-page-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 0.6rem;
+  justify-content: center;
+  padding: 1.25rem 0.5rem 0.25rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.in-page-nav__link {
+  display: inline-block;
+  padding: 0.45rem 0.65rem;
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--accent-burgundy);
+  border-radius: 999px;
+  border: 1px solid transparent;
+  min-height: 44px;
+  line-height: 1.2;
+  align-content: center;
+}
+
+.in-page-nav__link:hover {
+  border-color: var(--border);
+  background: rgba(122, 36, 56, 0.06);
+}
+
+.in-page-nav__link:focus-visible {
+  outline: 2px solid var(--accent-burgundy);
+  outline-offset: 2px;
+}
+
+.in-page-nav__link--primary {
+  background: var(--ink-burgundy);
+  color: var(--paper);
+  border-color: var(--ink-burgundy);
+}
+
+.in-page-nav__link--primary:hover {
+  background: var(--accent-burgundy);
+  border-color: var(--accent-burgundy);
+  color: var(--paper);
+}
+
+/* Sections */
+.section {
+  padding: var(--space-section) 0 0;
+}
+
+.section__title {
+  margin: 0 0 1.1rem;
+  font-family: var(--font-serif);
+  font-size: 1.55rem;
+  font-weight: 500;
+  text-align: center;
+  color: var(--ink-burgundy-deep);
+}
+
+.location-cards {
+  display: grid;
+  gap: 1.25rem;
+}
+
+.location-card {
+  padding: 1.2rem 1rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-card);
+  background: rgba(255, 252, 247, 0.75);
+}
+
+.location-card--vorontsovo,
+.location-card--bolshakovo {
+  padding: 0;
+  overflow: hidden;
+}
+
+.location-card__figure {
+  margin: 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.location-card__img {
+  display: block;
+  width: 100%;
+  height: auto;
+  vertical-align: middle;
+}
+
+.location-card__body {
+  padding: 1.2rem 1rem;
+}
+
+.location-card__time {
+  margin: 0 0 0.65rem;
+  font-family: var(--font-serif);
+  font-size: 1.15rem;
+  line-height: 1.35;
+  color: var(--ink-burgundy-deep);
+}
+
+.location-card--vorontsovo .location-card__time,
+.location-card--bolshakovo .location-card__time {
+  margin-bottom: 0.35rem;
+}
+
+.location-card__venue {
+  margin: 0 0 0.75rem;
+  font-family: var(--font-serif);
+  font-size: 1.12rem;
+  line-height: 1.35;
+  color: var(--ink-burgundy-deep);
+}
+
+.location-card__text {
+  margin: 0.35rem 0 0;
+  font-size: 0.98rem;
+  color: var(--muted);
+  line-height: 1.55;
+}
+
+.location-card .btn {
+  margin-top: 1rem;
+}
+
+/* Timeline */
+.timeline {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  position: relative;
+}
+
+.timeline::before {
+  content: "";
+  position: absolute;
+  left: 0.45rem;
+  top: 0.35rem;
+  bottom: 0.35rem;
+  width: 2px;
+  background: linear-gradient(
+    var(--accent-burgundy),
+    rgba(122, 36, 56, 0.25)
+  );
+  border-radius: 1px;
+}
+
+.timeline__item {
+  position: relative;
+  padding: 0 0 1.75rem 2.15rem;
+}
+
+.timeline__item:last-child {
+  padding-bottom: 0;
+}
+
+.timeline__item::before {
+  content: "";
+  position: absolute;
+  left: 0.12rem;
+  top: 0.35rem;
+  width: 0.7rem;
+  height: 0.7rem;
+  border-radius: 50%;
+  background: var(--paper);
+  border: 2px solid var(--accent-burgundy);
+  box-shadow: 0 0 0 2px var(--paper);
+}
+
+.timeline__label {
+  margin: 0 0 0.5rem;
+  font-family: var(--font-serif);
+  font-size: 1.12rem;
+  line-height: 1.35;
+  color: var(--ink-burgundy-deep);
+}
+
+.timeline__body {
+  margin: 0;
+  font-size: 0.98rem;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.prose {
+  margin: 0;
+  max-width: 36rem;
+  margin-inline: auto;
+  text-align: center;
+  font-family: var(--font-serif);
+  font-size: 1.12rem;
+  line-height: 1.6;
+  color: var(--muted);
+}
+
+/* Form section */
+.form-intro {
+  margin: 0 auto 1rem;
+  max-width: 32rem;
+  text-align: center;
+  font-size: 0.95rem;
+  color: var(--muted);
+}
+
+.form-embed {
+  position: relative;
+  width: 100%;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-card);
+  overflow: hidden;
+  background: rgba(255, 252, 247, 0.5);
+}
+
+.form-embed__frame {
+  display: block;
+  width: 100%;
+  min-height: 28rem;
+  border: 0;
+}
+
+.form-fallback {
+  margin: 1.25rem 0 0;
+  text-align: center;
+}
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  padding: 0.65rem 1.5rem;
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-decoration: none;
+  text-align: center;
+  color: var(--paper);
+  background: var(--ink-burgundy);
+  border: 1px solid var(--ink-burgundy);
+  border-radius: var(--radius-card);
+  transition: background 0.2s ease, border-color 0.2s ease, transform 0.15s ease;
+}
+
+.btn:hover {
+  background: var(--accent-burgundy);
+  border-color: var(--accent-burgundy);
+  color: var(--paper);
+  transform: translateY(-1px);
+}
+
+.btn:focus-visible {
+  outline: 2px solid var(--accent-burgundy);
+  outline-offset: 3px;
+}
+
+.btn--wide {
+  width: 100%;
+  max-width: 22rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .btn {
+    transition: none;
+  }
+
+  .btn:hover {
+    transform: none;
+  }
+}
+
+@media (max-width: 360px) {
+  .location-card .btn,
+  .form-fallback .btn {
+    width: 100%;
+  }
+}
+
+/* Footer */
+.footer {
+  margin-top: 2rem;
+  padding-top: 1.25rem;
+  text-align: center;
+  border-top: 1px solid var(--border);
+}
+
+.footer__up {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--accent-burgundy);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  padding: 0.35rem 0.25rem;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+}
+
+.footer__up:hover {
+  border-bottom-color: var(--accent-burgundy);
+}
+
+.footer__up:focus-visible {
+  outline: 2px solid var(--accent-burgundy);
+  outline-offset: 2px;
+}
